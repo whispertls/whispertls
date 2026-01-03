@@ -1,0 +1,5 @@
+pub   ed25519 2026-01-02 [SC]
+      E406 DF11 C3A7 BA40 BBB2  263B 9531 4654 77A7 B8A2
+uid           [ultimate] whispertls
+sub   cv25519 2026-01-02 [E]
+

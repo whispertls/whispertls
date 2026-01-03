@@ -71,7 +71,7 @@ class NcursesUI:
 
     def function_oob(self):
         oob_data = self.main_app.oob_start_request()
-        self.add_message("Give this code to your new contact: {}".format(oob_data))
+        self.add_message("Give this code to your contact: {}".format(oob_data))
         self.add_message("That CODE is ephemeral/temporary, only works ONCE, if the process fail you need to start over /oob")
 
     def function_delete(self,args):
@@ -521,7 +521,7 @@ class NcursesUI:
             "/select <contact_id>          - Start a conversation with the selected contact",
             "/oob                          - Start the process to add a contact ( Out of the band Exchange )",
             "/add <oob_code>               - Add a contact with that <oob_code>",
-            "/verify <CODE>                - Verifyy the contact <CODE>",
+            "/verify <code>                - Verifyy the contact <code>",
             "/delete <contact_id>          - DELETE selected contact, THIS PROCESS CANNOT BE UNDONE",
             "/setpassword                  - Set the main password for the Application",
             "/changepassword               - Change the current password for the Application",

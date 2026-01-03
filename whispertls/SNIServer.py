@@ -235,7 +235,8 @@ class OOBServer:
         if self.main_app.add_verificationcode(identity['contact_id'],user_verification) == 0:
             raise ValueError("Database error add_verificationcode")
         
-        self.main_app.display_message("OOB Exchange Success, ask to your contact for his verification code")
+        self.main_app.display_message("OOB Exchange Success, ask to your contact for the verification code.")
+        self.main_app.display_message("Verify it with /verify <code>")
 
 
 class SNIServer:
@@ -378,3 +379,4 @@ class SNIServer:
         cert = serialization.load_pem_x509_certificate(pem_cert)
         der_cert = cert.public_bytes(serialization.Encoding.DER)
         return der_cert
+        

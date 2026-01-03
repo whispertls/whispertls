@@ -68,7 +68,7 @@ class WhisperTLS:
             self.webui.notify_error(error)
         now = datetime.datetime.now()
         formatted = now.strftime("%Y%m%d %H:%M:%S")
-        self.log("{} - {}".format(formatted,error))
+        #self.log("{} - {}".format(formatted,error))
     
     def start(self):
         task1 = threading.Thread(target=self.ui.start,name="UI",daemon=True)
@@ -126,12 +126,7 @@ class WhisperTLS:
         self.display_message("Contac ID: {}".format(contact['id']))
         identity['contact_id'] = contact['id']
 
-        self.db.insert_identity(identity)
-        #if r  == 1:
-        #    self.display_message("Final data Inserted")
-        #else :
-        #    self.display_message("Final data Falied")
-        
+        self.db.insert_identity(identity)       
         
         client = OOBClient(self,identity,oob_code,int(self.config['core_timeout_seconds']),self.display_error)
         client.start()
@@ -141,7 +136,7 @@ class WhisperTLS:
             return None
         
         identity = self.db.get_identity(contact['id'])   # This ensure that full identity/contact bundle is already on database
-        self.loadcontact(identity,network=False)    #Tor Service should be 
+        self.loadcontact(identity)    #Tor Service should be 
             
         return {
             "full": row['verification_code'],
@@ -157,6 +152,7 @@ class WhisperTLS:
         return identity
     
     def get_messages(self,contact_id : str,number : int)  -> list:
+        #Dummy data #FIXME
         messages =[
             {"id": "028c073b9ccb4a6a",
              "msg":"Hello Alice",
@@ -206,6 +202,7 @@ class WhisperTLS:
         return self.db.delete_contact(contact_id)
 
     def reset_communication(self) -> bool:
+        #FIXME
         return True
         
     def get_status(self) -> dict:
@@ -220,6 +217,7 @@ class WhisperTLS:
         }
         
     def search_messages(self,search_value:str) -> list:
+        #Dummy data FIXME
         conversations = [ {"contact" : {"id": "028c073b9ccb4a6a","nickname":"Alice"} , 
                            "message" : {"id":"fb08666ccc625072","msg" : "I've been doing great today!","direction": "recv"}
                           }]
@@ -232,7 +230,7 @@ class WhisperTLS:
                 raise ValueError("Database error set_contactready")
 
             identity = self.db.get_identity(row['contact_id'])   # This ensure that full identity/contact bundle is already on database
-            self.loadcontact(identity,network=False)    #Tor Service should be
+            self.loadcontact(identity)
             return row
         else:
             return row

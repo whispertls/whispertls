@@ -65,7 +65,7 @@ CREATE TABLE config (
     config_value TEXT NOT NULL DEFAULT ''
 );
 
-INSERT INTO config (config_key,config_value) values ('core_certificate_minutes','43200'); -- 1 Month
+INSERT INTO config (config_key,config_value) values ('core_certificate_minutes','10080'); -- 1 week
 INSERT INTO config (config_key,config_value) values ('core_interval_seconds','15');
 INSERT INTO config (config_key,config_value) values ('core_timeout_seconds','300'); --5 minutes
 INSERT INTO config (config_key,config_value) values ('core_fixed_message_size_KiB','2');
@@ -75,5 +75,5 @@ INSERT INTO config (config_key,config_value) values ('tor_controlport','9051');
 INSERT INTO config (config_key,config_value) values ('tor_password','');
 INSERT INTO config (config_key,config_value) values ('messages_read_receipts','disabled');
 INSERT INTO config (config_key,config_value) values ('messages_send_timestamp','disabled');
-INSERT INTO config (config_key,config_value) values ('messages_file_download_path','./downloads');
+INSERT INTO config (config_key,config_value) values ('messages_download_path','./downloads');
 INSERT INTO config (config_key,config_value) values ('finish','1');
